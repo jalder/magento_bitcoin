@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+ 
+    <modules>
+        <Mcq_Bitcoin>
+            <version>0.1.0</version>
+        </Mcq_Bitcoin>
+    </modules>
+ 
+    <global>
+ 
+        <helpers>
+            <bitcoin>
+                <class>Mcq_Bitcoin_Helper</class>
+            </bitcoin>
+        </helpers>  
+        <models>
+            <bitcoin>
+                <class>Mcq_Bitcoin_Model</class>
+            </bitcoin>
+        </models>
+ 
+        <resources>
+            <bitcoin_setup>
+                <setup>
+                    <module>Mcq_Bitcoin</module>
+                    <class>Mcq_Bitcoin_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bitcoin_setup>
+            <bitcoin_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bitcoin_write>
+            <bitcoin_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bitcoin_read>
+        </resources>
+    </global>
+    <default>
+        <payment>
+            <bitcoin>
+
+                <active>1</active>
+
+                <model>bitcoin/paymentLogic</model>
+
+                <order_status>pending</order_status>
+                <title>Bitcoin Payment </title>
+
+                <api_key>1234</api_key>
+                <api_secret>1234</api_secret>
+
+                <cctypes>AE,VI,MC,DI,SS</cctypes>
+
+                <payment_action>authorize_capture</payment_action>
+
+                <allowspecific>0</allowspecific>
+            </bitcoin>
+        </payment>
+    </default>
+</config>
+
