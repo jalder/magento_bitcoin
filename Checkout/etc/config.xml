@@ -2,29 +2,29 @@
 <config>
  
     <modules>
-        <Mcq_Bitcoin>
+        <Bitcoin_Checkout>
             <version>0.1.0</version>
-        </Mcq_Bitcoin>
+        </Bitcoin_Checkout>
     </modules>
  
     <global>
  
         <helpers>
             <bitcoin>
-                <class>Mcq_Bitcoin_Helper</class>
+                <class>Bitcoin_Checkout_Helper</class>
             </bitcoin>
         </helpers>  
         <models>
             <bitcoin>
-                <class>Mcq_Bitcoin_Model</class>
+                <class>Bitcoin_Checkout_Model</class>
             </bitcoin>
         </models>
  
         <resources>
             <bitcoin_setup>
                 <setup>
-                    <module>Mcq_Bitcoin</module>
-                    <class>Mcq_Bitcoin_Model_Resource_Mysql4_Setup</class>
+                    <module>Bitcoin_Checkout</module>
+                    <class>Bitcoin_Checkout_Model_Resource_Mysql4_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
@@ -53,12 +53,9 @@
                 <order_status>pending</order_status>
                 <title>Bitcoin Payment </title>
 
-                <api_key>1234</api_key>
-                <api_secret>1234</api_secret>
+                <cctypes></cctypes>
 
-                <cctypes>AE,VI,MC,DI,SS</cctypes>
-
-                <payment_action>authorize_capture</payment_action>
+                <payment_action>capture</payment_action>
 
                 <allowspecific>0</allowspecific>
             </bitcoin>
