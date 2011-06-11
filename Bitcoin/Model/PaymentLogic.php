@@ -4,7 +4,7 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	/**
 	 * unique internal payment method identifier
 	 */
-	protected $_code = 'newmodule';
+	protected $_code = 'bitcoin';
  
 	/**
 	 * this should probably be true if you're using this
@@ -63,6 +63,7 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	 */
 	public function authorize (Varien_Object $payment, $amount)
 	{
+Mage::log("in authorize");
  
 	}
  
@@ -72,6 +73,7 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	 */
 	public function capture (Varien_Object $payment, $amount)
 	{
+Mage::log("in capture");
  
 	}
  
@@ -80,6 +82,7 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	 */
 	public function refund (Varien_Object $payment, $amount)
 	{
+Mage::log("in refund");
  
 	}
  
@@ -88,8 +91,10 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	 */
 	public function void (Varien_Object $payment)
 	{
+Mage::log("in void");
  
 	}
+
 }
 ?>
 
