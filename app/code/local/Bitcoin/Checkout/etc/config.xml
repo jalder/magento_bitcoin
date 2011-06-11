@@ -3,35 +3,35 @@
 
      <helpers>
          <payment>
-             <class>Mcq_Bitcoin_Helper_Data</class>
+             <class>Bitcoin_Checkout_Helper_Data</class>
          </payment>
      </helpers>  
  
     <modules>
-        <Mcq_Bitcoin>
+        <Bitcoin_Checkout>
             <version>0.1.0</version>
-        </Mcq_Bitcoin>
+        </Bitcoin_Checkout>
     </modules>
  
     <global>
 
         <blocks>
             <newmodule>
-                <class>Mcq_Bitcoin_Block</class>
+                <class>Bitcoin_Checkout_Block</class>
             </newmodule>
         </blocks>
 
         <models>
             <bitcoin>
-                <class>Mcq_Bitcoin_Model</class>
+                <class>Bitcoin_Checkout_Model</class>
             </bitcoin>
         </models>
  
         <resources>
             <bitcoin_setup>
                 <setup>
-                    <module>Mcq_Bitcoin</module>
-                    <class>Mcq_Bitcoin_Model_Resource_Mysql4_Setup</class>
+                    <module>Bitcoin_Checkout</module>
+                    <class>Bitcoin_Checkout_Model_Resource_Mysql4_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>

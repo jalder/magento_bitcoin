@@ -1,5 +1,5 @@
 <?php
-class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
+class Bitcoin_Checkout_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 {
 	/**
 	 * unique internal payment method identifier
@@ -15,7 +15,7 @@ class Mcq_Bitcoin_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	/**
 	 * can this method authorise?
 	 */
-	protected $_canAuthorize			= true;
+	protected $_canAuthorize			= false;
  
 	/**
 	 * can this method capture funds?
