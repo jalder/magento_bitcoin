@@ -16,19 +16,19 @@
   <global>
 
     <blocks>
-      <bitcoin>
+      <bitpay>
         <class>Bitcoin_Bitpay_Block</class>
-      </bitcoin>
+      </bitpay>
     </blocks>
 
     <models>
-      <bitcoin>
+      <bitpay>
         <class>Bitcoin_Bitpay_Model</class>
-      </bitcoin>
+      </bitpay>
     </models>
 
     <resources>
-      <bitcoin_setup>
+      <bitpay_setup>
         <setup>
           <module>Bitcoin_Bitpay</module>
           <class>Bitcoin_Bitpay_Model_Resource_Mysql4_Setup</class>
@@ -36,31 +36,31 @@
         <connection>
           <use>core_setup</use>
         </connection>
-      </bitcoin_setup>
-      <bitcoin_write>
+      </bitpay_setup>
+      <bitpay_write>
         <connection>
           <use>core_write</use>
         </connection>
-      </bitcoin_write>
-      <bitcoin_read>
+      </bitpay_write>
+      <bitpay_read>
         <connection>
           <use>core_read</use>
         </connection>
-      </bitcoin_read>
+      </bitpay_read>
     </resources>
   </global>
   <default>
     <payment>
-      <bitcoin>
+      <bitpay>
         <active>0</active>
-        <model>bitcoin/paymentLogic</model>
+        <model>bitpay/checkout</model>
         <order_status>pending</order_status>
         <title>Bitcoin Bitpay</title> 
         <payment_action>authorize_capture</payment_action>
         <rpchost>localhost</rpchost>
         <rpcport>8332</rpcport>
         <allowspecific>0</allowspecific>
-      </bitcoin>
+      </bitpay>
     </payment>
   </default>
 </config>

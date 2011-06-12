@@ -1,6 +1,6 @@
 <config>
     <modules>
-        <Bitcoin_Checkout>
+        <Bitcoin_Bitpay>
             <active>true</active>
 <!-- this module will be located in app/code/local code pool -->
             <codePool>local</codePool>
@@ -8,6 +8,6 @@
             <depends>
                 <Mage_Payment />
             </depends>
-        </Bitcoin_Checkout>
+        </Bitcoin_Bitpay>
     </modules>
 </config>

@@ -3,7 +3,7 @@
   <sections>
     <payment>
       <groups>
-        <bitcoin translate="label">
+        <bitpay translate="label">
           <label>Bitcoin Module</label>
           <sort_order>670</sort_order>
           <show_in_default>1</show_in_default>
@@ -68,7 +68,7 @@
               <show_in_store>1</show_in_store>
             </order_status>
           </fields>
-        </bitcoin>
+        </bitpay>
       </groups>
     </payment>
   </sections>

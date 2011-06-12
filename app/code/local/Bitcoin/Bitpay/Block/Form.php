@@ -9,11 +9,9 @@
 
 class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
 {
-
-    protected function _construct()
-    {
-        parent::_construct();
-        $this->setTemplate('bitpay/form.phtml');
-    }
-
+  protected function _construct()
+  {
+      parent::_construct();
+      $this->setTemplate('bitpay/form.phtml');
+  }
 }
