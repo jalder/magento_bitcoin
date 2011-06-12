@@ -1,0 +1,1 @@
+- If developing with symlinks for templates, make sure Allow Symlinks is enable in System / Configuration / Developer

@@ -1,12 +1,5 @@
 <?xml version="1.0"?>
 <config>
-
-  <helpers>
-    <payment>
-      <class>Bitcoin_Bitpay_Helper_Data</class>
-    </payment>
-  </helpers>  
-
   <modules>
     <Bitcoin_Bitpay>
       <version>0.1.0</version>
@@ -26,6 +19,12 @@
         <class>Bitcoin_Bitpay_Model</class>
       </bitpay>
     </models>
+
+    <helpers>
+      <payment>
+        <class>Bitcoin_Bitpay_Helper</class>
+      </payment>
+    </helpers>  
 
     <resources>
       <bitpay_setup>
@@ -52,14 +51,14 @@
   <default>
     <payment>
       <bitpay>
-        <active>0</active>
+        <active>1</active>
         <model>bitpay/checkout</model>
         <order_status>pending</order_status>
         <title>Bitcoin Bitpay</title> 
-        <payment_action>authorize_capture</payment_action>
         <rpchost>localhost</rpchost>
         <rpcport>8332</rpcport>
         <allowspecific>0</allowspecific>
+        <group>offline</group>        
       </bitpay>
     </payment>
   </default>

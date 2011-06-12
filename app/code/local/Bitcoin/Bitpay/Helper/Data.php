@@ -1,6 +1,16 @@
 <?php
-class Bitcoin_Bitpay_Helper_Data extends Mage_Core_Helper_Abstract
+class Bitcoin_Bitpay_Helper_Data extends Mage_Payment_Helper_Data
 {
-Mage::log('in Bitcoin_Checkout_Helper_Data');
+
+  public function getMethodInstance($code)
+  {
+      $class = 'bitpay/checkout';
+      
+      Mage::log("class: ". $class);
+      
+      
+      return Mage::getModel($class);
+  }
+  
 } 
 ?>

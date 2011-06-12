@@ -24,7 +24,8 @@ class Bitcoin_Bitpay_Model_Checkout extends Mage_Payment_Model_Method_Abstract
      * unique internal payment method identifier
      */
     protected $_code = 'bitpay_checkout';
-
+//    protected $_paymentMethod	= 'bitcoind';
+    
     protected $_formBlockType = 'bitpay/form';
     protected $_infoBlockType = 'bitpay/info';
     
@@ -50,6 +51,11 @@ class Bitcoin_Bitpay_Model_Checkout extends Mage_Payment_Model_Method_Abstract
     
     public function getTitle() {
       return 'Bitcoin';
+    }    
+
+    public function getMethodInstance() {
+      Mage::log('in local getMethodInstance');
+      
     }
-    
+
 }
