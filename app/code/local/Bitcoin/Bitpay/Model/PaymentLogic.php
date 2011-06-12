@@ -1,5 +1,5 @@
 <?php
-class Bitcoin_Checkout_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
+class Bitcoin_Bitpay_Model_PaymentLogic extends Mage_Payment_Model_Method_Abstract
 {
 	/**
 	 * unique internal payment method identifier
@@ -35,7 +35,7 @@ class Bitcoin_Checkout_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	/**
 	 * can this method void transactions?
 	 */
-	protected $_canVoid				 = true;
+	protected $_canVoid				 = false;
  
 	/**
 	 * can admins use this payment method?
@@ -51,20 +51,14 @@ class Bitcoin_Checkout_Model_PaymentLogic extends Mage_Payment_Model_Method_Cc
 	 * available for multi shipping checkouts?
 	 */
 	protected $_canUseForMultishipping  = true;
- 
-	/**
-	 * can this method save cc info for later use?
-	 */
-	protected $_canSaveCc = false;
- 
+  
 	/**
 	 * this method is called if we are just authorising
 	 * a transaction
 	 */
 	public function authorize (Varien_Object $payment, $amount)
 	{
-Mage::log("in authorize");
- 
+    Mage::log("in authorize");
 	}
  
 	/**
@@ -73,8 +67,7 @@ Mage::log("in authorize");
 	 */
 	public function capture (Varien_Object $payment, $amount)
 	{
-Mage::log("in capture");
- 
+    Mage::log("in capture");
 	}
  
 	/**
@@ -82,8 +75,7 @@ Mage::log("in capture");
 	 */
 	public function refund (Varien_Object $payment, $amount)
 	{
-Mage::log("in refund");
- 
+    Mage::log("in refund");
 	}
  
 	/**
@@ -91,8 +83,7 @@ Mage::log("in refund");
 	 */
 	public function void (Varien_Object $payment)
 	{
-Mage::log("in void");
- 
+    Mage::log("in void");
 	}
 
 }

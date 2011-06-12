@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+
+  <helpers>
+    <payment>
+      <class>Bitcoin_Bitpay_Helper_Data</class>
+    </payment>
+  </helpers>  
+
+  <modules>
+    <Bitcoin_Bitpay>
+      <version>0.1.0</version>
+    </Bitcoin_Bitpay>
+  </modules>
+
+  <global>
+
+    <blocks>
+      <bitcoin>
+        <class>Bitcoin_Bitpay_Block</class>
+      </bitcoin>
+    </blocks>
+
+    <models>
+      <bitcoin>
+        <class>Bitcoin_Bitpay_Model</class>
+      </bitcoin>
+    </models>
+
+    <resources>
+      <bitcoin_setup>
+        <setup>
+          <module>Bitcoin_Bitpay</module>
+          <class>Bitcoin_Bitpay_Model_Resource_Mysql4_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </bitcoin_setup>
+      <bitcoin_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </bitcoin_write>
+      <bitcoin_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </bitcoin_read>
+    </resources>
+  </global>
+  <default>
+    <payment>
+      <bitcoin>
+        <active>0</active>
+        <model>bitcoin/paymentLogic</model>
+        <order_status>pending</order_status>
+        <title>Bitcoin Bitpay</title> 
+        <payment_action>authorize_capture</payment_action>
+        <rpchost>localhost</rpchost>
+        <rpcport>8332</rpcport>
+        <allowspecific>0</allowspecific>
+      </bitcoin>
+    </payment>
+  </default>
+</config>
+
