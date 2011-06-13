@@ -25,8 +25,17 @@ class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
   }
 
   protected function getAddress(){
-//    $url = $this->rpcurl;
-    $bitcoin = new jsonRPCClient('http://josh:pass@localhost:8332');
+
+    //I see config/default/payment/bitpay/rpc{host,port,user,password}
+
+    $hostname = Mage::getConfig()->getNode('default/payment/bitpay/rpchost');
+    $port = Mage::getConfig()->getNode('default/payment/bitpay/rpcport');
+    $user = Mage::getConfig()->getNode('default/payment/bitpay/rpcuser');
+    $password = Mage::getConfig()->getNode('default/payment/bitpay/rpcpassword');
+
+    $bitcoin = new jsonRPCClient("http://$user:$password@$hostname:$port");
+
+    Mage::Log("calling bitcoind:http://$user:xxxx@$hostname:$port");
 
     try {
       $bitcoin->getinfo();
