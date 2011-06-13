@@ -1,1 +1,3 @@
 - If developing with symlinks for templates, make sure Allow Symlinks is enable in System / Configuration / Developer
+
+- Code is now routing through Bitpay Data. Override stuff to send it to correct Info module/block.
