@@ -15,9 +15,18 @@
     </blocks>
 
     <models>
-      <bitpay>
-        <class>Bitcoin_Bitpay_Model</class>
-      </bitpay>
+        <bitpay>
+            <class>Bitcoin_Bitpay_Model</class>
+            <resourceModel>bitpay_mysql4</resourceModel>
+        </bitpay>   
+        <bitpay_mysql4>
+            <class>Bitcoin_Bitpay_Model_Mysql4</class>              
+            <entities>
+                <bam>
+                    <table>bam</table>
+                </bam>
+            </entities>              
+        </bitpay_mysql4>
     </models>
 
     <helpers>

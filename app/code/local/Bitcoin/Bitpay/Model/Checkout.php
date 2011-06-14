@@ -55,7 +55,7 @@ class Bitcoin_Bitpay_Model_Checkout extends Mage_Payment_Model_Method_Abstract
 
     public function getMethodInstance() {
       Mage::log('in local getMethodInstance');
-      
+
     }
 
 }

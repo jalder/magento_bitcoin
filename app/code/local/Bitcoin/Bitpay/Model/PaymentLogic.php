@@ -58,7 +58,7 @@ class Bitcoin_Bitpay_Model_PaymentLogic extends Mage_Payment_Model_Method_Abstra
 	 */
 	public function authorize (Varien_Object $payment, $amount)
 	{
-    Mage::log("in authorize");
+    Mage::Log("in authorize");
 	}
  
 	/**
@@ -67,7 +67,8 @@ class Bitcoin_Bitpay_Model_PaymentLogic extends Mage_Payment_Model_Method_Abstra
 	 */
 	public function capture (Varien_Object $payment, $amount)
 	{
-    Mage::log("in capture");
+
+    Mage::Log("in capture");
 	}
  
 	/**
@@ -75,7 +76,7 @@ class Bitcoin_Bitpay_Model_PaymentLogic extends Mage_Payment_Model_Method_Abstra
 	 */
 	public function refund (Varien_Object $payment, $amount)
 	{
-    Mage::log("in refund");
+    Mage::Log("in refund");
 	}
  
 	/**
@@ -83,7 +84,7 @@ class Bitcoin_Bitpay_Model_PaymentLogic extends Mage_Payment_Model_Method_Abstra
 	 */
 	public function void (Varien_Object $payment)
 	{
-    Mage::log("in void");
+    Mage::Log("in void");
 	}
 
 }
