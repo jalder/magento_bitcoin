@@ -1,0 +1,26 @@
+#sales_flat_order_grid.increment_id
+#
+#insert it and the bitcoin address into table magento.bam at the time the order is written to sales_flat_order_grid
+#insert bitcoin address and sales_flat_order_grid.increment_id
+#    that id seems to be good universal id for the orders
+#call the bitcoind and assign this increment_id to the bitcoin address as the account name
+#    it needs to work for anonymous purchases too
+
+#the following works but it needs to be put into the right place and the increment_id
+#needs to be retrieved
+#and need to get the order # which is sales_flat_order_grid.increment_id
+$bam = Mage::getModel('bitpay/bam');
+$bam->setOrderId('test order id');
+$bam->setAddress('ksksksksk');
+$bam->save();
+
+#here is the table create sql
+CREATE TABLE `bam` (
+  `bam_id` int(11) NOT NULL auto_increment,
+  `order_id` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `date` datetime default NULL,
+  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`bam_id`)
+)
+
