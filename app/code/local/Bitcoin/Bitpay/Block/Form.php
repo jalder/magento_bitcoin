@@ -26,6 +26,11 @@ class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
 
   protected function getAddress(){
 
+
+    if (Mage::getSingleton('customer/session')->getBcAccount() && ($bc_address = Mage::getSingleton('customer/session')->getBcAddress())) {
+        return $bc_address;
+    }
+
     //I see config/default/payment/bitpay/rpc{host,port,user,password}
 
     $hostname = Mage::getConfig()->getNode('default/payment/bitpay/rpchost');
@@ -46,19 +51,32 @@ class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
 
     $info = Mage::getSingleton('checkout/cart')->getCustomerSession()->getCustomer();
     if($info->email=='') {
-      $address = 'GuestCheckout-';
+      $bc_account = 'GuestCheckout-';
     }
     else{
-      $address = $info->email.'-';		
+      $bc_account = $info->email.'-';		
     }
 
     $qid = Mage::getSingleton('checkout/cart')->getCheckoutSession()->getQuoteId();	
     $info = Mage::getSingleton('sales/quote')->load($qid);	
-    $info->reserveOrderId();
-    $address .= $info['reserved_order_id'];
 
-    $address = $bitcoin->getaccountaddress($address);
-    return $address;
+    //this is getting called again at a later time so its not getting trapped here
+    $info->reserveOrderId();
+    $bc_account .= $info->getReservedOrderId();
+
+    $bc_address = $bitcoin->getaccountaddress($bc_account);
+
+    Mage::Log('bc_account:'. $bc_account . ':bc_address:'. $bc_address . ':');
+
+    Mage::getSingleton('customer/session')->setBcAccount($bc_account);
+    Mage::getSingleton('customer/session')->setBcAddress($bc_address);
+
+    $bam = Mage::getModel('bitpay/bam');
+    $bam->setOrderId($bc_account);
+    $bam->setAddress($bc_address);
+    $bam->save();
+
+    return $bc_address;
   }
 
   /**
@@ -69,9 +87,6 @@ class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
   protected function _toHtml()
   {
     $this->address = $this->getAddress();
-    Mage::dispatchEvent('payment_form_block_to_html_before', array(
-      'block'     => $this
-      ));
     return parent::_toHtml();
   }
 }

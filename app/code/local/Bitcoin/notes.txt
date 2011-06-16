@@ -1,3 +1,25 @@
+
+//save taht order id and use it later rather than calling reserve ordeer id again
+//don't call it again
+//the controller: /var/www/html/magento/app/code/core/Mage/Checkout/controllers/OnepageController.php
+
+//functions in the payment logic handler
+//have something like this public function capture (Varien_Object $payment, $amount)
+//so if I can get at that Varien object, then I can get the order id
+//this here is the block though which is pulled in via a layout and is far removed from the payment logic
+//so I need a link to the main controller of I need to put something in the payment logic
+//to save the info in the layout so this block can get it
+//see dynamic parameters via layout update xml
+//but first how do i update access the layout from the block?  That should be easy.
+//but i have not specified any layout yet so I need to figure out how to make it use my layous so I can add the d
+//dynamic parameters thing to the layout
+//so that's first - get this thing to use my layout
+//Mage::Log(var_export());
+#
+#useful logging tip:
+#
+# Mage::Log(var_export($obj));
+#
 #sales_flat_order_grid.increment_id
 #
 #insert it and the bitcoin address into table magento.bam at the time the order is written to sales_flat_order_grid
