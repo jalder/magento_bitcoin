@@ -1,3 +1,36 @@
+first check to see if its already done by checking the session
+if its there then look it up in db with the session id
+    (get the session id and add that to the db table) use that as a unique id
+if its not there then get a new address from bitcoin
+so save it in db and get the row id and save the row id 
+    save it keyed on session id
+later update it in the observer with the ordeer_id by session_id
+
+so get a session_id and put it into that db table
+
+#try to hook up to these
+#issue the db commands in a halder for this event
+Mage::dispatchEvent('sales_order_place_after',
+#after is better than before for error handling purposes
+#Mage::dispatchEvent('sales_order_place_before',
+#here is a lame wiki page about it which might work
+http://www.magentocommerce.com/wiki/5_-_modules_and_development/0_-_module_development_in_magento/customizing_magento_using_event-observer_method
+#the session code needs to be where it is so it won't run twice
+#the order id is used when I talk to bitcoind which happens early
+#so what I wwant to do it get the later step to use this order_id
+#I want it to avoid doing another reserveOrderId
+
+#no I save it in a temp way where it is now
+#and save it for real later in the real place
+I don't save it in bitcoin until I get the order id in the observer
+In the Form I check first the final place and then the temporary place and if
+neither then I call for a new address
+in the observer I save that address with the full account name in bitcoindo
+in the temp spot (the session) I don't save it with the real name but I save
+an id so I can look up the address in the db and I save the rest in db later
+so session is used only for storage of an id
+
+
 
 //save taht order id and use it later rather than calling reserve ordeer id again
 //don't call it again
@@ -37,9 +70,11 @@ $bam->setAddress('ksksksksk');
 $bam->save();
 
 #here is the table create sql
+#revise this so there is an index on order_id, session_id, and address
 CREATE TABLE `bam` (
   `bam_id` int(11) NOT NULL auto_increment,
-  `order_id` varchar(50) NOT NULL,
+  `order_id` varchar(50),
+  `session_id` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `date` datetime default NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,

@@ -26,6 +26,18 @@ class Bitcoin_Bitpay_Block_Form extends Mage_Payment_Block_Form
 
   protected function getAddress(){
 
+        #get the session_id
+        #check the bam table to see if its in there
+        #    adjust the resource so I can query by session id
+        #if there is no bitcoin address then get one now and save it in bam and return it
+        #it there is a bitcoin address then return it
+        #then set an observer on the Mage::dispatchEvent('sales_order_place_after',
+        # in the observer set the order id in bam
+        # also set the account name in bitcoind
+
+Mage::Log('session  id3:'. session_id() .':');
+
+    $sid = session_id();
 
     if (Mage::getSingleton('customer/session')->getBcAccount() && ($bc_address = Mage::getSingleton('customer/session')->getBcAddress())) {
         return $bc_address;
